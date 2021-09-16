@@ -16,8 +16,9 @@
     "discord-rich-presence": "^0.0.8",
     "got": "^11.8.2",
     "jsdom": "^17.0.0"
-},
+  },
   "devDependencies": {
+    "eslint": "^7.32.0",
     "nexe": "^4.0.0-beta.18"
   }
 }
