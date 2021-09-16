@@ -1,0 +1,23 @@
+{
+  "name": "steam-discord-bridge",
+  "version": "1.0.0",
+  "description": "Steam-Discord-Bridge, a tool to show your currently running game in discord when using proton.",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js",
+    "publish": "npx nexe --build --verbose --output=sdb --make=\"-j$(nproc 2> /dev/null || echo 1)\" index.js"
+  },
+  "keywords": [],
+  "author": "Jonas Mohr",
+  "license": "GNU GPL v3",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.2.0",
+    "discord-rich-presence": "^0.0.8",
+    "got": "^11.8.2",
+    "jsdom": "^17.0.0"
+},
+  "devDependencies": {
+    "nexe": "^4.0.0-beta.18"
+  }
+}
