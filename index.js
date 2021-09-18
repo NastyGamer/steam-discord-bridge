@@ -42,7 +42,7 @@ const logger = {
 let playing = undefined;
 
 client.updatePresence({
-	details: "Laughing about Windows peasants",
+	details: "Laughing at Windows peasants",
 	largeImageKey: "arch",
 	smallImageKey: "tux",
 	instance: true
@@ -54,15 +54,12 @@ setInterval(() => {
 		const dom = new JSDOM(response.body);
 		const div = dom.window.document.querySelector(".profile_in_game_name");
 		if (div == null) {
-			//Currently not playing
 			if(playing === undefined) {
-				//Hasnt played in the fetch before
 				logger.info("Currently not playing anything. Doing nothing.");
 			}
 			else {
-				//Has played in the fetch before
 				client.updatePresence({
-					details: "Laughing about Windows peasants",
+					details: "Laughing at Windows peasants",
 					largeImageKey: "arch",
 					smallImageKey: "tux",
 					instance: true
@@ -71,14 +68,11 @@ setInterval(() => {
 			}
 		}
 		else {
-			//Currently playing
-			logger.success(`Picked up new game ${div.textContent}. Changing presence.`);
 			if(playing === div.textContent) {
-				//Plays the same as in the fetch before
 				logger.info(`Still playing ${playing}. Doing nothing.`);
 			}
 			else {
-				//Playing something new as in the fetch before / Started playing
+				logger.success(`Picked up new game ${div.textContent}. Changing presence.`);
 				client.updatePresence({
 					details: div.textContent,
 					startTimestamp: Date.now(),
